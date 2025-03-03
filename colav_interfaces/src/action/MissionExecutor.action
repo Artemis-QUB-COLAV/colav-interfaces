@@ -1,3 +1,4 @@
+# MissionExecutor.action
 # Goal
 colav_interfaces/MissionRequest mission_request
 
@@ -8,4 +9,4 @@ string status_message
 
 ---
 # Feedback - This will return the serialised protobuf for controllerfeedback
-std_msgs/ByteMultiArray serialised_protobuf_controller_feedback
+std_msgs/ByteMultiArray serialised_controller_feedback
