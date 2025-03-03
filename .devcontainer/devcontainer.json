@@ -1,0 +1,34 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "colav_interfaces devcontainer",
+	"workspaceFolder": "/workspace/ros2_ws/src/colav_interfaces",
+	"workspaceMount": "source=${localWorkspaceFolder}/colav_interfaces,target=/workspace/ros2_ws/src/colav_interfaces,type=bind,consistency=cached",
+	"build": {
+		"dockerfile": "../dockerfile"
+	},
+	"runArgs": [
+		"--network", "bridge"
+	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-toolsai.jupyter",
+				"ms-azuretools.vscode-docker",
+				"redhat.vscode-xml",
+				"redhat.vscode-yaml",
+				"ms-python.pylint"
+			]
+		},
+		"settings": {
+			"terminal.integrated.shell.linux": "/bin/bash",
+			"python.languageServer": "Pylance",
+			"python.analysis.typeCheckingMode": "basic",
+			"python.formatting.provider": "black",
+			"python.formatting.autoFormatOnSave": true
+		},
+		"remoteUser": "vscode",
+		"postCreateCommand": "source /root/.bashrc && echo 'Container setup complete!'"
+	}
+}
