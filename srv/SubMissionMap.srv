@@ -1,0 +1,12 @@
+# Request part of the service
+string sub_mission_tag                      # The tag of the sub-mission associated with the sub_map being generated
+sensor_msgs/NavSatFix agent_position   # The initial position of the agent (latitude, longitude)
+sensor_msgs/NavSatFix sub_goal_position     # The goal position for the mission (latitude, longitude)
+
+---
+# Response part of the service
+bool is_map_generated    # Indicates whether the map generation was successful or not
+string osm_map_path      # The path to the OSM (OpenStreetMap) file used for map generation
+string co_map_path       # The path to the CommonOcean map generated from the OSM data
+string pgm_map_path      # Path to the pgm static layer map for path and motion planning 
+string status            # Status message returns information regarding map update

@@ -1,0 +1,10 @@
+# UnsafeRegion.srv
+
+# Req
+colav_interfaces/Agent2D agent
+colav_interfaces/Obstacles2D obstacles
+
+---
+# Res
+geometry_msgs/Polygon unsafe_region
+builtin_interfaces/Time unsafe_region_timestamp

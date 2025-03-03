@@ -1,0 +1,7 @@
+# StartHybridAutomaton
+# Request
+colav_interfaces/MissionRequest mission_request
+---
+# Response
+bool success
+string message

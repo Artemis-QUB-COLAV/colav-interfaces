@@ -1,0 +1,9 @@
+std_msgs/Header header
+string agent_tag
+geometry_msgs/Pose pose
+float64 velocity
+float64 acceleration
+float64 yaw_rate
+float64 safety_radius
+string timestamp
+string timestep
