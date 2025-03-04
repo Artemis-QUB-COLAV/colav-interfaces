@@ -37,4 +37,5 @@ jobs:
       - name: Run Tests
         run: |
           cd /ros2_ws
-          colcon test
+          colcon test --event-handlers console_cohesion+
+          colcon test-result --verbose
