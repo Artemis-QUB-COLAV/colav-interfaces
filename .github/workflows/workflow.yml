@@ -22,12 +22,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          path: colav_gateway  # Checkout to a subfolder in the workspace
+          path: colav_interfaces  # Checkout to a subfolder in the workspace
 
       - name: Setup ROS2 workspace
         run: |
           mkdir -p /ros2_ws/src
-          mv $GITHUB_WORKSPACE/src/* /ros2_ws/src/
+          mv $GITHUB_WORKSPACE/interfaces/* /ros2_ws/src/colav_interfaces
 
       - name: Build ROS2 workspace
         shell: bash
