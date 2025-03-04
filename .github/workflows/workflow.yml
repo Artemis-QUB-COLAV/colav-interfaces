@@ -27,7 +27,7 @@ jobs:
       - name: Setup ROS2 workspace
         run: |
           mkdir -p /ros2_ws/src
-          mv $GITHUB_WORKSPACE/interfaces/* /ros2_ws/src/colav_interfaces
+          mv $GITHUB_WORKSPACE/colav_interfaces/* /ros2_ws/src/colav_interfaces
 
       - name: Build ROS2 workspace
         shell: bash
