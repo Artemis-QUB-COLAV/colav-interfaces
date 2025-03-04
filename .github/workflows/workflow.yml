@@ -17,7 +17,7 @@ jobs:
     
     steps:
       - name: Install Git
-        run: apt-get update && apt-get install -y git && apt-get install python3-colcon-common-extensions
+        run: apt-get update && apt-get install -y git && apt-get install python3-colcon-common-extensions -y
 
       - name: Setup ROS2 workspace
         run: mkdir -p /ros2_ws/src
