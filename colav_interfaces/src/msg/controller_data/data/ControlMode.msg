@@ -6,4 +6,4 @@ uint8 T2THETA = 3
 uint8 FALLBACK = 4
 uint8 WAYPOINT_REACHED = 5
 
-uint8 control_mode
+uint8 type
