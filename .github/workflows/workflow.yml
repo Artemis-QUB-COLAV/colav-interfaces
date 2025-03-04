@@ -28,6 +28,7 @@ jobs:
           fetch-depth: 1
 
       - name: Build ROS2 workspace
+        shell: bash
         run: |
           cd /ros2_ws
           colcon build
