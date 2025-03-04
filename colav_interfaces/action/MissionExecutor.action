@@ -1,6 +1,6 @@
 # MissionExecutor.action
 # Goal
-colav_interfaces/MissionRequest req
+colav_interfaces/MissionRequest request
 
 ---
 # Result

@@ -1,0 +1,41 @@
+name: colav_interfaces CI/CD
+run-name: ${{ github.actor }} is testing colav_interfaces 🚀
+
+on:
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+  release: 
+    types: [created, prereleased, published]
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    container:
+      image: ros:humble-ros-core
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          path: /ros2_ws/src
+          fetch-depth: 1
+
+      - name: Set up sparse checkout
+        run: |
+          git sparse-checkout init --cone
+          git sparse-checkout set colav_interfaces
+        working-directory: /ros2_ws/src
+
+      - name: Setup ROS2 workspace
+        run: |
+          mkdir -p /ros2_ws/src
+          cd /ros2_ws
+          colcon build
+          source install/setup.bash
+
+      - name: Run Tests
+        run: |
+          cd /ros2_ws
+          colcon test

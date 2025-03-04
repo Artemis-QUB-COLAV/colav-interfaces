@@ -16,34 +16,36 @@ find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 # ADDED dependencies END --------------------------
-
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "src/msg/mission_config/vessel/VesselConstraints.msg"
-  "src/msg/mission_config/vessel/VesselGeometry.msg"
-  "src/msg/mission_config/vessel/Vessel.msg"
-  "src/msg/mission_config/waypoint/Waypoint.msg"
-  "src/msg/mission_config/MissionRequest.msg"
-
-  "src/msg/controller_data/data/CmdVelYaw.msg"
-  "src/msg/controller_data/data/ControlMode.msg"
-  "src/msg/controller_data/data/ControlStatus.msg"
-  "src/msg/controller_data/ControllerFeedback.msg"
-
-  "src/msg/state_updates/agent_update/AgentUpdate.msg"
-  "src/msg/state_updates/obstacles_update/geometry/DynamicObstacleGeometry.msg"
-  "src/msg/state_updates/obstacles_update/geometry/StaticObstacleGeometry.msg"
-  "src/msg/state_updates/obstacles_update/DynamicObstacle.msg"
-  "src/msg/state_updates/obstacles_update/StaticObstacle.msg"
-  "src/msg/state_updates/obstacles_update/ObstaclesUpdate.msg"
-
-  "src/msg/state_updates/unsafe_set_update/UnsafeSet.msg"
-
-  "src/srv/hybrid_automaton/StartHybridAutomaton.srv"
-
+  "msg/mission_config/vessel/VesselConstraints.msg"
+  "msg/mission_config/vessel/VesselGeometry.msg"
+  "msg/mission_config/vessel/Vessel.msg"
+  "msg/mission_config/waypoint/Waypoint.msg"
+  "msg/mission_config/MissionRequest.msg"
+  "msg/controller_data/data/CmdVelYaw.msg"
+  "msg/controller_data/data/ControlMode.msg"
+  "msg/controller_data/data/ControlStatus.msg"
+  "msg/controller_data/ControllerFeedback.msg"
+  "msg/state_updates/agent_update/AgentUpdate.msg"
+  "msg/state_updates/obstacles_update/geometry/DynamicObstacleGeometry.msg"
+  "msg/state_updates/obstacles_update/geometry/StaticObstacleGeometry.msg"
+  "msg/state_updates/obstacles_update/DynamicObstacle.msg"
+  "msg/state_updates/obstacles_update/StaticObstacle.msg"
+  "msg/state_updates/obstacles_update/ObstaclesUpdate.msg"
+  "msg/state_updates/unsafe_set_update/UnsafeSet.msg"
+  "srv/hybrid_automaton/StartHybridAutomaton.srv"
+  "action/MissionExecutor.action"
+  
   DEPENDENCIES geometry_msgs
   DEPENDENCIES nav_msgs
   DEPENDENCIES std_msgs
   DEPENDENCIES builtin_interfaces
 )
 
+if(BUILD_TESTING)
+  find_package(ament_cmake_pytest REQUIRED)
+  ament_add_pytest_test(your_test_name test)
+endif()
+
 ament_package()
+
