@@ -16,8 +16,8 @@ jobs:
       image: ros:humble-ros-core
     
     steps:
-      - name: Install Git
-        run: apt-get update && apt-get install -y git && apt-get install python3-colcon-common-extensions -y
+      - name: Install Git and Colcon
+        run: apt-get update && apt-get install -y git python3-colcon-common-extensions
 
       - name: Setup ROS2 workspace
         run: mkdir -p /ros2_ws/src
@@ -25,12 +25,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          path: /ros2_ws/src
+          path: /ros2_ws/src/colav_interfaces
 
       - name: Build ROS2 workspace
         shell: bash
         run: |
-          cd /ros2_ws/src && ls
           cd /ros2_ws && colcon build --packages-select colav_interfaces && source install/setup.bash
 
       - name: Run Tests
