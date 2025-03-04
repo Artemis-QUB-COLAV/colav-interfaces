@@ -17,7 +17,7 @@ jobs:
     
     steps:
       - name: Install Git
-        run: apt-get update && sudo apt-get install -y git
+        run: apt-get update && apt-get install -y git
 
       - name: Setup ROS2 workspace
         run: mkdir -p /ros2_ws/src
