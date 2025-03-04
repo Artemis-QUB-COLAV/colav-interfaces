@@ -25,7 +25,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          path: /ros2_ws/src/colav_interfaces
+          path: /ros2_ws/src
 
       - name: Build ROS2 workspace
         shell: bash
