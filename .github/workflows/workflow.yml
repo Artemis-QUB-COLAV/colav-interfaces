@@ -19,13 +19,16 @@ jobs:
       - name: Install Git
         run: apt-get update && apt-get install -y git
 
+      - name: Setup ROS2 workspace
+        run: mkdir -p /ros2_ws/src
+
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-          path: ros2_ws/src
+          path: /ros2_ws/src
 
-      - name: Setup ROS2 workspace
+      - name: Build ROS2 workspace
         run: |
           cd /ros2_ws
           colcon build
