@@ -30,12 +30,8 @@ jobs:
       - name: Build ROS2 workspace
         shell: bash
         run: |
-          cd /ros2_ws
-          colcon build
-          source install/setup.bash
+          cd /ros2_ws && colcon build && source install/setup.bash
 
       - name: Run Tests
         run: |
-          cd /ros2_ws
-          colcon test --event-handlers console_cohesion+
-          colcon test-result --verbose
+          cd /ros2_ws && colcon test --event-handlers console_cohesion+ && colcon test-result --verbose
