@@ -65,7 +65,6 @@ jobs:
           path: colav_interfaces  # Checkout to a subfolder in the workspace
 
       - name: Run Tests
-        shell: bash
         run: |
           cd /ros2_ws
           source /opt/ros/humble/setup.bash
