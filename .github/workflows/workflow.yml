@@ -10,7 +10,7 @@ on:
     types: [created, prereleased, published]
 
 jobs: 
-  build: 
+  setup:
     runs-on: ubuntu-latest
     container:
       image: ros:humble-ros-core
@@ -35,6 +35,27 @@ jobs:
           mkdir -p /ros2_ws/src/colav_interfaces
           mv $GITHUB_WORKSPACE/colav_interfaces/* /ros2_ws/src/colav_interfaces
 
+      - name: Cache ROS2 workspace
+        uses: actions/cache@v2
+        with:
+          path: /ros2_ws
+          key: ${{ runner.os }}-ros2_ws-${{ hashFiles('**/colav_interfaces/**') }}
+          restore-keys: |
+            ${{ runner.os }}-ros2_ws-
+
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ros:humble-ros-core
+    needs: setup
+    
+    steps:
+      - name: Restore ROS2 workspace
+        uses: actions/cache@v2
+        with:
+          path: /ros2_ws
+          key: ${{ runner.os }}-ros2_ws-${{ hashFiles('**/colav_interfaces/**') }}
+      
       - name: Build ROS2 workspace
         shell: bash
         run: |
@@ -43,6 +64,19 @@ jobs:
           colcon build --packages-select colav_interfaces
           source install/setup.bash
 
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: ros:humble-ros-core
+    needs: build
+    
+    steps:
+      - name: Restore ROS2 workspace
+        uses: actions/cache@v2
+        with:
+          path: /ros2_ws
+          key: ${{ runner.os }}-ros2_ws-${{ hashFiles('**/colav_interfaces/**') }}
+      
       - name: Run Tests
         shell: bash
         run: |
