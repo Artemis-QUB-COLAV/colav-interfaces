@@ -2,6 +2,7 @@ import rclpy
 from colav_interfaces.msg import MissionRequest, Vessel, Waypoint, VesselConstraints, VesselGeometry
 from geometry_msgs.msg import Point32
 from std_msgs.msg import Header
+from typing import List
 import pytest
 
 @pytest.fixture(scope='class')
@@ -83,12 +84,14 @@ class TestMissionRequest:
         
         assert hasattr(msg, 'init_position')
         assert isinstance(msg.init_position, Point32)
-        assert hasattr(msg, 'goal_waypoint')
-        assert isinstance(msg.goal_waypoint, Waypoint)
-        assert hasattr(msg.goal_waypoint, 'position')
-        assert isinstance(msg.goal_waypoint.position, Point32)
-        assert hasattr(msg.goal_waypoint, 'acceptance_radius')
-        assert isinstance(msg.goal_waypoint.acceptance_radius, float)
+        assert hasattr(msg, 'goal_waypoints')
+        assert isinstance(msg.goal_waypoints, list)
+        
+        mock_waypoint = Waypoint()
+        assert hasattr(mock_waypoint, 'position')
+        assert isinstance(mock_waypoint.position, Point32)
+        assert hasattr(mock_waypoint, 'acceptance_radius')
+        assert isinstance(mock_waypoint.acceptance_radius, float)
 
     def _create_test_mission_request(self):
         msg = MissionRequest()
@@ -109,10 +112,13 @@ class TestMissionRequest:
         msg.init_position.x = 1.0
         msg.init_position.y = 1.0
         msg.init_position.z = 1.0
-        msg.goal_waypoint.position.x = 1.0
-        msg.goal_waypoint.position.y = 1.0
-        msg.goal_waypoint.position.z = 1.0
-        msg.goal_waypoint.acceptance_radius = 1.0
+        
+        msg.goal_waypoints = [
+            Waypoint(
+                position=Point32(x=1.0, y=1.0, z=1.0),
+                acceptance_radius=30.0
+            )
+        ]
         return msg
 
     def _check_mission_request_values(self, msg):
@@ -133,7 +139,8 @@ class TestMissionRequest:
         assert msg.init_position.x == 1.0
         assert msg.init_position.y == 1.0
         assert msg.init_position.z == 1.0
-        assert msg.goal_waypoint.position.x == 1.0
-        assert msg.goal_waypoint.position.y == 1.0
-        assert msg.goal_waypoint.position.z == 1.0
-        assert msg.goal_waypoint.acceptance_radius == 1.0
+        assert len(msg.goal_waypoints) == 1
+        assert msg.goal_waypoints[0].position.x == 1.0
+        assert msg.goal_waypoints[0].position.y == 1.0
+        assert msg.goal_waypoints[0].position.z == 1.0
+        assert msg.goal_waypoints[0].acceptance_radius == 30.0

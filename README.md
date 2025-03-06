@@ -50,7 +50,8 @@ ros2 pkg list | grep colav_interfaces # should now show colav_interfaces
 Sample definition for mission request from colav_interfaces. More examples are contained in:
 
 ```python
-from colav_interfaces.msg import MissionRequest
+from colav_interfaces.msg import MissionRequest, Waypoint
+from geometry_msgs.msg import Point32
 
 mission_request = MissionRequest()
 mission_request.tag = "mission_0001"
@@ -67,10 +68,17 @@ mission_request.vessel.constraints.max_yaw_rate = 0.2
 mission_request.vessel.geometry.loa = 10.0
 mission_request.vessel.geometry.beam = 2.0
 mission_request.vessel.geometry.safety_radius = 1.5
-mission_request.goal_waypoint.position.x = 10.0
-mission_request.goal_waypoint.position.y = 20.0
-mission_request.goal_waypoint.position.z = 0.0
-mission_request.goal_waypoint.acceptance_radius = 1.0
+
+mission_request.goal_waypoint = [
+    Waypoint(
+        position = Point32(
+            x = float(10.0),
+            y = float(20.0),
+            z = float(0.0)
+        ),
+        acceptance_radius = float(20.0)
+    )
+]
 ```
 
 ## License
