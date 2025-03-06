@@ -1,9 +1,11 @@
 import rclpy
+from geometry_msgs.msg import Polygon
 from colav_interfaces.msg import ObstaclesUpdate, DynamicObstacle, DynamicObstacleGeometry, StaticObstacle, StaticObstacleGeometry
 from std_msgs.msg import Header
 from geometry_msgs.msg import Pose
 import pytest
 from typing import List
+from geometry_msgs.msg import Point32
 
 @pytest.fixture(scope='class')
 def rclpy_node():
@@ -73,12 +75,10 @@ class TestObstaclesUpdate:
         assert isinstance(static_obstacle.pose, Pose)
         assert hasattr(static_obstacle, 'geometry')
         assert isinstance(static_obstacle.geometry, StaticObstacleGeometry)
-        assert hasattr(static_obstacle.geometry, 'loa')
-        assert isinstance(static_obstacle.geometry.loa, float)
-        assert hasattr(static_obstacle.geometry, 'beam')
-        assert isinstance(static_obstacle.geometry.beam, float)
-        assert hasattr(static_obstacle.geometry, 'safety_radius')
-        assert isinstance(static_obstacle.geometry.safety_radius, float)
+        assert hasattr(static_obstacle.geometry, 'polyshape')
+        assert isinstance(static_obstacle.geometry.polyshape, Polygon)
+        assert hasattr(static_obstacle.geometry, 'inflation_radius')
+        assert isinstance(static_obstacle.geometry.inflation_radius, float)
         
         print('Message structure test passed!') 
 
@@ -119,9 +119,16 @@ class TestObstaclesUpdate:
         static_obstacle.pose.orientation.y = 0.0
         static_obstacle.pose.orientation.z = 0.0
         static_obstacle.pose.orientation.w = 1.0
-        static_obstacle.geometry.loa = 6.0
-        static_obstacle.geometry.beam = 3.0
-        static_obstacle.geometry.safety_radius = 1.5
+        Polygon( 
+            points = [
+                Point32(x=float(0), y=float(0), z=float(0)),
+                Point32(x=float(1), y=float(0), z=float(0)),
+                Point32(x=float(1), y=float(1), z=float(0)),
+                Point32(x=float(0), y=float(1), z=float(0)),
+                Point32(x=float(0), y=float(0), z=float(0))  
+            ]
+        )
+        static_obstacle.geometry.inflation_radius = 5.2
 
         obstacles_update.dynamic_obstacles.append(dynamic_obstacle)
         obstacles_update.static_obstacles.append(static_obstacle)
@@ -162,8 +169,6 @@ class TestObstaclesUpdate:
         assert received_message['msg'].static_obstacles[0].pose.orientation.y == 0.0
         assert received_message['msg'].static_obstacles[0].pose.orientation.z == 0.0
         assert received_message['msg'].static_obstacles[0].pose.orientation.w == 1.0
-        assert received_message['msg'].static_obstacles[0].geometry.loa == 6.0
-        assert received_message['msg'].static_obstacles[0].geometry.beam == 3.0
-        assert received_message['msg'].static_obstacles[0].geometry.safety_radius == 1.5
+        assert received_message['msg'].static_obstacles[0].geometry.inflation_radius == 5.2
 
         print('Publisher and subscriber test passed!')

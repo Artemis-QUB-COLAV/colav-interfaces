@@ -44,7 +44,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 
 if(BUILD_TESTING)
   find_package(ament_cmake_pytest REQUIRED)
-  ament_add_pytest_test(your_test_name test)
+  ament_add_pytest_test(your_test_name tests)
 endif()
 
 ament_package()
