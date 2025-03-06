@@ -2,10 +2,10 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>colav_interfaces</name>
-  <version>0.0.0</version>
-  <description>Container pkg for COLAV Related interfaces</description>
+  <version>0.0.1</version>
+  <description>ros2 pkg for defining ros2 interfaces specific for COLAV</description>
   <maintainer email="r.mckee@qub.ac.uk">Ryan McKee</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
