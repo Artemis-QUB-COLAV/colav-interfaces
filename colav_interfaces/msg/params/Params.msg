@@ -1,0 +1,14 @@
+# Params.msg
+colav_interfaces/Address mission_request_address
+colav_interfaces/Address mission_response_address
+
+colav_interfaces/Address agent_update_address
+float64 agent_update_sync_hz
+float64 agent_update_sync_tolerance_secs
+
+colav_interfaces/Address obstacles_update_address
+float64 obstacles_update_sync_hz
+float64 obstacles_update_sync_tolerance_secs
+
+colav_interfaces/Address controller_feedback_address
+float64 controller_feedback_sync_hz

@@ -33,6 +33,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/state_updates/obstacles_update/StaticObstacle.msg"
   "msg/state_updates/obstacles_update/ObstaclesUpdate.msg"
   "msg/state_updates/unsafe_set_update/UnsafeSet.msg"
+  "msg/params/address/Address.msg"
+  "msg/params/Params.msg"
   "srv/hybrid_automaton/StartHybridAutomaton.srv"
   "action/MissionExecutor.action"
   
