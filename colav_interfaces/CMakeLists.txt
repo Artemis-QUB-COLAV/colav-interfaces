@@ -35,7 +35,9 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/state_updates/unsafe_set_update/UnsafeSet.msg"
   "msg/params/address/Address.msg"
   "msg/params/Params.msg"
+  "msg/hybrid_automaton/TransitionResult.msg"
   "srv/hybrid_automaton/StartHybridAutomaton.srv"
+  "srv/hybrid_automaton/EvaluateTransitions.srv"
   "action/MissionExecutor.action"
   
   DEPENDENCIES geometry_msgs
