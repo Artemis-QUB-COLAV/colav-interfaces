@@ -36,8 +36,14 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/params/address/Address.msg"
   "msg/params/Params.msg"
   "msg/hybrid_automaton/TransitionResult.msg"
+  "msg/hybrid_automaton/CRUISEDynamics.msg"
+  "msg/hybrid_automaton/FBDynamics.msg"
+  "msg/hybrid_automaton/T2LOSDynamics.msg"
+  "msg/hybrid_automaton/T2ThetaDynamics.msg"
+  "msg/hybrid_automaton/WaypointReachedDynamic.msg"
   "srv/hybrid_automaton/StartHybridAutomaton.srv"
   "srv/hybrid_automaton/EvaluateTransitions.srv"
+  "srv/hybrid_automaton/UpdateDynamics.srv"
   "action/MissionExecutor.action"
   
   DEPENDENCIES geometry_msgs
