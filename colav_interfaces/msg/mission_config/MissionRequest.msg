@@ -5,4 +5,4 @@ string tag
 std_msgs/Header header
 colav_interfaces/Vessel vessel
 geometry_msgs/Point32 init_position
-colav_interfaces/Waypoint[] goal_waypoints
+colav_interfaces/Waypoint goal_waypoint
