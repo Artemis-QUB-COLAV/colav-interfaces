@@ -1,2 +1,0 @@
-bool vw_found
-colav_interfaces/Waypoint virtual_waypoint

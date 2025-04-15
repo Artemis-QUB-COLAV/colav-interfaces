@@ -1,0 +1,12 @@
+# EvaluateTransitions.srv
+
+# Request: the reset name
+string reset_name
+
+---
+# Response: overall result and detailed results for each transition
+string reset_name
+bool success                         # Indicates if all transitions were successfully evaluated
+string message                               # General message or summary information
+colav_interfaces/CruiseToT2losReset cruise_to_t2los_reset
+colav_interfaces/WaypointReachedToCruiseReset waypoint_reached_to_cruise_reset

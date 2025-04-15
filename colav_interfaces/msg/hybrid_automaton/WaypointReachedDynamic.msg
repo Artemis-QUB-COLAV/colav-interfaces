@@ -1,1 +1,0 @@
-bool is_waypoint_reached
