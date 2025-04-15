@@ -21,6 +21,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/mission_config/vessel/VesselGeometry.msg"
   "msg/mission_config/vessel/Vessel.msg"
   "msg/mission_config/waypoint/Waypoint.msg"
+  "msg/mission_config/waypoint/Waypoints.msg"
   "msg/mission_config/MissionRequest.msg"
   "msg/controller_data/data/CmdVelYaw.msg"
   "msg/controller_data/data/ControlMode.msg"
