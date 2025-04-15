@@ -24,3 +24,7 @@ bool waypoint_reached_to_cruise  # Transition from WAYPOINT_REACHED to CRUISE mo
 
 # Optionally, include timestamps if you need to track when each transition was evaluated
 builtin_interfaces/Time timestamp
+
+# error indication
+bool error
+string error_message

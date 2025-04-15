@@ -11,3 +11,6 @@ colav_interfaces/FBDynamics fallback_dynamics
 colav_interfaces/WaypointReachedDynamics waypoint_reached_dynamics
 
 builtin_interfaces/Time timestamp
+
+bool error
+string error_message
