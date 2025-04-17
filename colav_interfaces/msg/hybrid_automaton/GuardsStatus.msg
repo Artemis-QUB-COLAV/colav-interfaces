@@ -8,8 +8,8 @@ string control_mode
 string[] guard_names
 
 # Guard statuses for each transition (true = guard passed, false = guard failed)
-bool cruise_to_t2los1
-bool cruise_to_t2los2
+bool cruise_to_t2los_1
+bool cruise_to_t2los_2
 bool cruise_to_waypoint_reached
 bool cruise_to_fb  # Fallback guard for CRUISE mode
 
