@@ -1,8 +1,4 @@
 # Mission.msg
-# This message defines the details of a mission, including the mission's tag, timestamps, 
-# the vessel performing the mission, and the mission's initial and goal positions.
-string tag
-std_msgs/Header header
-colav_interfaces/Vessel vessel
-geometry_msgs/Point32 init_position
+# Defines a missionRequest message which will simply be a stamp with a goal_waypoint
+builtin_interfaces/Time stamp
 colav_interfaces/Waypoint goal_waypoint

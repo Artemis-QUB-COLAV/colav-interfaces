@@ -1,8 +1,5 @@
 # ControllerFeedback.msg
-std_msgs/Header header
-
-string mission_tag
-string agent_tag
+builtin_interfaces/Time stamp
 
 colav_interfaces/CmdVelYaw cmd
 colav_interfaces/ControlMode mode
