@@ -5,7 +5,5 @@ string transition_name
 
 ---
 # Response: overall result and detailed results for each transition
-string transition_name
-colav_interfaces/Waypoints waypoints # could change this to states in the future for more general resets but I am only resetting waypoints currently
 bool success                         # Indicates if all transitions were successfully evaluated
 string message                               # General message or summary information
