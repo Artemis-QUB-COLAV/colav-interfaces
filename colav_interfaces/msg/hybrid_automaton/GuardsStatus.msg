@@ -4,7 +4,11 @@
 # Current control mode (e.g., CRUISE, T2LOS, etc.)
 string control_mode
 
-# Stores the guard names evaluated for the current control mode
+# Stores the guard names evaluated for the current control mode # guard eval id is given for each unique transition evaluation to help the asynchronous system
+# transition_pending is a boolean state triggered when a guard condition is only set false again when 
+string transition_eval_id
+bool transition_pending
+
 string[] guard_names
 
 # Guard statuses for each transition (true = guard passed, false = guard failed)
