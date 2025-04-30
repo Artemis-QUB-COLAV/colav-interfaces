@@ -45,6 +45,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/hybrid_automaton/resets/WaypointReachedToCruiseReset.msg" 
   "msg/hybrid_automaton/DynamicsUpdate.msg"
   "msg/hybrid_automaton/GuardsStatus.msg"
+  "msg/hybrid_automaton/ResetAck.msg"
+  "msg/hybrid_automaton/TransitionPending.msg"
   "srv/hybrid_automaton/Reset.srv"
   "srv/hybrid_automaton/StartHybridAutomaton.srv"
   "action/MissionExecutor.action"
