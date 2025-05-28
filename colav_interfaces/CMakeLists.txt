@@ -48,7 +48,9 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/state_updates/collision_metrics/CollisionMetrics.msg"
   "srv/hybrid_automaton/Reset.srv"
   "srv/hybrid_automaton/StartHybridAutomaton.srv"
+  "srv/testing/StartScenarioTest.srv"
   "action/MissionExecutor.action"
+  "action/StartScenarioTest.action"
   
   DEPENDENCIES geometry_msgs
   DEPENDENCIES nav_msgs

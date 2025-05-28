@@ -1,0 +1,9 @@
+# Goal
+string yaml_path
+---
+# Result
+bool success
+string message
+---
+# Feedback (optional - can leave empty if not needed)
+string status
