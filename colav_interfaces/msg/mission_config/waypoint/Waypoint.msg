@@ -1,3 +1,3 @@
 #Waypoint.msg
-geometry_msgs/Point32 position
-float32 acceptance_radius
+geometry_msgs/Point position
+float64 acceptance_radius
