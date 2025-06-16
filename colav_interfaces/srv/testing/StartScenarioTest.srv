@@ -1,5 +1,0 @@
-string yaml_path
-
----
-bool success
-string message

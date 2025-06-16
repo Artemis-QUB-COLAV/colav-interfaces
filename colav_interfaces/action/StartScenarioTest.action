@@ -1,3 +1,6 @@
+# StartScenarioTest.action
+# action for starting scenario testing.
+
 # Goal
 string yaml_path
 ---

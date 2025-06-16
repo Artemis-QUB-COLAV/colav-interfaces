@@ -1,3 +1,0 @@
-# StaticObstacleGeometry.msg
-geometry_msgs/Polygon polyshape
-float64 inflation_radius
